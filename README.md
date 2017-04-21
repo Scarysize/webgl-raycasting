@@ -1,4 +1,4 @@
-# webgl-raycasting
+# webgl-raycasting - [Demo](https://scarysize.github.io/webgl-raycasting/)
 Volumne rendering via ray casting in webgl
 
 ## Run
