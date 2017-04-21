@@ -20,7 +20,5 @@ export default function() {
   context.fillStyle = gradient;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  document.querySelector('.transfer-function').appendChild(canvas);
-
   return context;
 }

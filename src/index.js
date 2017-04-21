@@ -2,6 +2,7 @@ import fit from 'canvas-fit';
 import initCamera from 'canvas-orbit-camera';
 import initRegl from 'regl';
 import mat4 from 'gl-mat4';
+import {h, render} from 'preact';
 
 import cubeGeometry from './cube';
 import loadImage from './load-image';
@@ -9,6 +10,8 @@ import transferFunction from './transfer-function';
 
 import firstPass from './first-pass';
 import secondPass from './second-pass';
+
+import UI from './ui';
 
 const container = document.querySelector('.canvas-container');
 const canvas = container.appendChild(document.createElement('canvas'));
@@ -43,6 +46,11 @@ const transferTex = regl.texture({
   height: 1,
   alignment: 4
 });
+
+render(
+  <UI onUpdate={context => transferTex({data: context})} />,
+  document.querySelector('#transfer-function')
+);
 
 const fbo = regl.framebuffer({
   width,

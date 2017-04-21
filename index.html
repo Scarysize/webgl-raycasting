@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Grid Reduction</title>
+    <title>Volume Rendering - Ray Casting</title>
     <style>
       :root {
         --column-width: 50vw
@@ -40,14 +40,37 @@
         justify-content: center;
         margin-top: 0.67em;
       }
+
+      .color-stops {
+        position: relative;
+      }
+
+      .color-stop {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        border: 1px solid black;
+        cursor: pointer;
+      }
+
+      .color-stop input {
+        cursor: pointer;
+        width: 10px;
+        height: 10px;
+        border: none;
+        padding: 0;
+        position: absolute;
+        opacity: 0;
+      }
     </style>
   </head>
 
   <body>
     <h1>Volume Rendering - Ray Casting</h1>
     <div class="canvas-container"></div>
-    <div class="transfer-function">
-    </div>
+    <div class="transfer-function"></div>
+    <div id="transfer-function"></div>
     <script src="bundle.js"></script>
   </body>
 
