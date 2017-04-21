@@ -13,14 +13,14 @@ export default function() {
     canvas.width - 1,
     canvas.height - 1
   );
-  gradient.addColorStop(0.0, '#ff0000');
-  gradient.addColorStop(0.5, '#ff0000');
-  gradient.addColorStop(1.0, '#ffff00');
+  gradient.addColorStop(0.1, '#ffffff');
+  gradient.addColorStop(0.5, '#ff9900');
+  gradient.addColorStop(1.0, '#ff0000');
 
   context.fillStyle = gradient;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  document.body.appendChild(canvas);
+  document.querySelector('.transfer-function').appendChild(canvas);
 
   return context;
 }

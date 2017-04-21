@@ -1,13 +1,14 @@
 const path = require('path');
 
 module.exports = {
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname)
   },
   devServer: {
-    contentBase: path.resolve(__dirname)
+    contentBase: path.resolve(__dirname),
+    host: '0.0.0.0'
   },
   devtool: 'source-map',
   module: {
@@ -24,7 +25,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ['transform-object-rest-spread'],
+            plugins: [
+              ['transform-react-jsx', {pragma: 'h'}],
+              'transform-object-rest-spread'
+            ],
             presets: ['env']
           }
         }

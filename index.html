@@ -5,25 +5,49 @@
     <meta charset="utf-8">
     <title>Grid Reduction</title>
     <style>
+      :root {
+        --column-width: 50vw
+      }
+
+      @font-face {
+        font-family: Latin Modern Math;
+        src: url('latinmodern-math.otf');
+      }
+
       html,
       body {
+        font-family: Latin Modern Math;
         padding: 0;
         margin: 0;
         height: 100%;
         width: 100%;
         display: flex;
         overflow: hidden;
+        flex-direction: column;
+        align-items: center;
       }
 
       .canvas-container {
-        height: 100%;
-        width: 100%
+        height: calc(10 * (50vw/16));
+        width: var(--column-width);
+        background-color: #000;
+        position: relative;
+      }
+
+      .transfer-function {
+        width: var(--column-width);
+        display: flex;
+        justify-content: center;
+        margin-top: 0.67em;
       }
     </style>
   </head>
 
   <body>
+    <h1>Volume Rendering - Ray Casting</h1>
     <div class="canvas-container"></div>
+    <div class="transfer-function">
+    </div>
     <script src="bundle.js"></script>
   </body>
 

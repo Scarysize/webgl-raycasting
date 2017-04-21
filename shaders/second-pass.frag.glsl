@@ -18,8 +18,10 @@ const int MAX_STEPS = 887;
 
 // Acts like a texture3D using Z slices and trilinear filtering.
 vec4 sampleAs3DTexture(vec3 texCoord) {
-  vec4 colorSlice1, colorSlice2;
-  vec2 texCoordSlice1, texCoordSlice2;
+  vec4 colorSlice1;
+  vec4 colorSlice2;
+  vec2 texCoordSlice1;
+  vec2 texCoordSlice2;
 
   // The z coordinate determines which Z slice we have to look for.
   // Z slice number goes from 0 to 255.
@@ -47,6 +49,8 @@ vec4 sampleAs3DTexture(vec3 texCoord) {
   // Bilinear filtering is done at each texture2D by default.
   colorSlice1 = texture2D(cubeTex, texCoordSlice1);
   colorSlice2 = texture2D(cubeTex, texCoordSlice2);
+
+  // TODO: only interpolate the sampled alpha values, then do the transfer lookup
 
   // Based on the opacity obtained earlier, get the RGB color in the transfer
   // function texture.
